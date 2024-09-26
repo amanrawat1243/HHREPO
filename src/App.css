@@ -1,0 +1,187 @@
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 5px 0;
+  padding: 10px;
+}
+
+button {
+  margin: 5px 0;
+  padding: 10px;
+}
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --danger-color: #e74c3c;
+  --hover-color: #1c6690;
+  --bg-color: #f0f0f0;
+  --form-bg: #fff;
+  --input-border: #ddd;
+  --input-focus-border: var(--primary-color);
+  --transition-speed: 0.3s;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-color), #e0e0e0);
+  font-family: 'Arial', sans-serif;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.service-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  background: var(--form-bg);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.service-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
+}
+
+.service-form input {
+  padding: 15px;
+  border: 2px solid var(--input-border);
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.service-form input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+.service-form button {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-form button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform var(--transition-speed) ease;
+  z-index: 0;
+}
+
+.service-form button:hover::after {
+  transform: translateX(0);
+}
+
+.service-form button:hover {
+  background: linear-gradient(90deg, var(--secondary-color), var(--hover-color));
+  transform: translateY(-2px);
+  z-index: 1;
+}
+
+.cancel-btn {
+  background: var(--danger-color);
+  transition: background var(--transition-speed) ease;
+}
+
+.cancel-btn:hover {
+  background: #c0392b;
+}
+
+@media (max-width: 500px) {
+  .service-form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .service-form input,
+  .service-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+.service-item {
+  padding: 20px;
+  margin: 10px 0;
+  border: 2px solid #3498db; /* Border color */
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-price {
+  font-weight: bold;
+  color: #3498db; /* Primary color */
+}
+
+.service-actions {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  margin-top: 10px; /* Space above buttons */
+}
+
+.service-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.edit-btn {
+  background: #3498db; /* Primary color */
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #2980b9; /* Darker shade */
+  transform: translateY(-2px);
+}
+
+.delete-btn {
+  background: #e74c3c; /* Danger color */
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c0392b; /* Darker shade */
+  transform: translateY(-2px);
+}
